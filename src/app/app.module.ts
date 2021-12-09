@@ -9,6 +9,7 @@ import { PostComponent } from './posts/post/post.component';
 import { HttpService } from '../shared/http.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ManagePostsComponent } from './posts/manage-posts/manage-posts.component';
+import { NotFoundComponent } from './not-found.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ManagePostsComponent } from './posts/manage-posts/manage-posts.componen
     ToolbarComponent,
     PostsComponent,
     PostComponent,
-    ManagePostsComponent
+    ManagePostsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
