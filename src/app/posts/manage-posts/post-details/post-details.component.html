@@ -1,0 +1,17 @@
+<div class="row mt-2" *ngIf="post">
+  <div class="col">
+    <h4>Post details</h4>
+    <div class="card">
+      <div class="card-body">
+        <p class="card-text">Post was created: {{ post.dateCreated }}</p>
+        <h5>{{ post.title }}</h5>
+        <p>{{ post.description }}</p>
+      </div>
+      <div class="card-footer">
+        <p class="m-0">Manage dish:</p>
+        <button class="btn btn-primary">Edit</button>&ngsp;
+        <button class="btn btn-danger" (click)="onDeletePost()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

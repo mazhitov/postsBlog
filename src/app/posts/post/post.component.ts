@@ -7,7 +7,7 @@ import { Post } from '../../../shared/post.model';
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-  @Input() post!:Post;
+  @Input() post: Post | null = null;
   constructor() { }
 
   ngOnInit(): void {
