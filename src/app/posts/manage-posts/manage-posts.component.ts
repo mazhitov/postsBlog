@@ -9,6 +9,7 @@ import { HttpService } from '../../../shared/http.service';
 })
 export class ManagePostsComponent implements OnInit {
   posts:Post[] = [];
+
   constructor(private httpService: HttpService) {}
 
   ngOnInit() {

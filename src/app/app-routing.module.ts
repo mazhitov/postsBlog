@@ -5,13 +5,15 @@ import { NotFoundComponent } from './not-found.component';
 import { ManagePostsComponent } from './posts/manage-posts/manage-posts.component';
 import { PostDetailsComponent } from './posts/manage-posts/post-details/post-details.component';
 import { EmptyPostDetailComponent } from './posts/manage-posts/empty-post-detail.component';
+import { NewEditPostComponent } from './posts/manage-posts/new-edit-post/new-edit-post.component';
 
 const routes: Routes = [
   {path: '',component: PostsComponent},
   {path: 'posts',component: ManagePostsComponent, children:[
       {path: '',component: EmptyPostDetailComponent},
+      {path: 'add',component: NewEditPostComponent},
       {path: ':id',component: PostDetailsComponent},
-      // {path: 'add',component: PostsComponent},
+      {path: ':id/edit',component: NewEditPostComponent},
     ]},
   {path: '**', component: NotFoundComponent},
 ];

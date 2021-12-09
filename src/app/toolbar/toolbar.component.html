@@ -9,8 +9,8 @@
       <li class="nav-item" routerLinkActive="active">
         <a routerLink="/posts" class="nav-link">Posts</a>
       </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a routerLink="/" class="nav-link">Add</a>
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a routerLink="/posts/add" class="nav-link">Add</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
         <a routerLink="/" class="nav-link">About</a>

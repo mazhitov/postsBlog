@@ -13,6 +13,8 @@ import { NotFoundComponent } from './not-found.component';
 import { PostDetailsComponent } from './posts/manage-posts/post-details/post-details.component';
 import { EmptyPostDetailComponent } from './posts/manage-posts/empty-post-detail.component';
 import { ModalComponent } from './ui/modal/modal.component';
+import { NewEditPostComponent } from './posts/manage-posts/new-edit-post/new-edit-post.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,12 +26,14 @@ import { ModalComponent } from './ui/modal/modal.component';
     NotFoundComponent,
     PostDetailsComponent,
     EmptyPostDetailComponent,
-    ModalComponent
+    ModalComponent,
+    NewEditPostComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]

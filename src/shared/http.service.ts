@@ -3,12 +3,17 @@ import { EventEmitter, Injectable, Output } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Post } from './post.model';
 
+type PostBody = {
+  title: string;
+  dateCreated: string;
+  description: string;
+};
+
 @Injectable()
 export class HttpService {
-  @Output() postsChange = new EventEmitter<Post[]>();
+  @Output() postsChange = new EventEmitter();
 
   constructor(private http: HttpClient) {}
-
 
   getData() {
     return this.http.get<{ [id: string]: Post }>('https://project-server-788da-default-rtdb.firebaseio.com/posts.json')
@@ -20,8 +25,20 @@ export class HttpService {
         });
       }))
   }
+
+  updateData(post:PostBody, id:string) {
+    this.http.put('https://project-server-788da-default-rtdb.firebaseio.com/posts/'+id+'.json', post).subscribe();
+    this.postsChange.emit();
+  }
+
+  postData(post: PostBody) {
+    this.http.post('https://project-server-788da-default-rtdb.firebaseio.com/posts.json', post).subscribe();
+    this.postsChange.emit();
+  }
+
   deletePost(id:string) {
     this.http.delete('https://project-server-788da-default-rtdb.firebaseio.com/posts/'+id+'.json').subscribe();
     this.postsChange.emit();
   }
+
 }
