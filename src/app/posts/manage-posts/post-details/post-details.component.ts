@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../../../../shared/post.model';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { HttpService } from '../../../../shared/http.service';
 
 @Component({
@@ -9,21 +9,34 @@ import { HttpService } from '../../../../shared/http.service';
   styleUrls: ['./post-details.component.css']
 })
 export class PostDetailsComponent implements OnInit {
-  post!: Post|undefined;
-
-  constructor(private route: ActivatedRoute, private httpService: HttpService) {}
+  post!: Post | undefined;
+  modalOpen = false;
+  postId = '';
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private httpService: HttpService,
+              ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
-      const postId = params['id'];
+      this.postId = params['id'];
 
       this.httpService.getData().subscribe(posts => {
-        this.post = posts.find(post => post.id === postId);
+        this.post = posts.find(post => post.id === this.postId);
       })
     });
   }
 
-  onDeletePost() {
+  openCheckOutModal() {
+    this.modalOpen = true;
+  }
 
+  closeCheckoutModal() {
+    this.modalOpen = false;
+  }
+
+  onDeletePost() {
+    this.httpService.deletePost(this.postId);
+    void this.router.navigate(['/posts']);
   }
 }

@@ -9,12 +9,18 @@ import { HttpService } from '../../../shared/http.service';
 })
 export class ManagePostsComponent implements OnInit {
   posts:Post[] = [];
-  constructor(private httpService: HttpService) { }
+  constructor(private httpService: HttpService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.getData();
+    this.httpService.postsChange.subscribe(() => {
+        this.getData();
+    });
+  }
+
+  getData() {
     this.httpService.getData().subscribe(posts => {
       this.posts = posts;
     });
   }
-
 }
