@@ -11,9 +11,10 @@ export class HttpService {
   getData() {
     return this.http.get<{ [id: string]: Post }>('https://project-server-788da-default-rtdb.firebaseio.com/posts.json')
       .pipe(map(result => {
+        if(result === null) return [];
         return Object.keys(result).map(id => {
           const post = result[id];
-          return new Post(id, post.title, post.date, post.description);
+          return new Post(id, post.title, post.dateCreated, post.description);
         });
       }))
   }
