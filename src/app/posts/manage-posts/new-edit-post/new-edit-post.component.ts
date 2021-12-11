@@ -21,7 +21,6 @@ export class NewEditPostComponent implements OnInit {
   post: Post | undefined = undefined;
   postId = '';
   btnText = 'Save';
-
   constructor(private route: ActivatedRoute,
               private router: Router,
               private httpService: HttpService,

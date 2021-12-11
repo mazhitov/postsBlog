@@ -12,6 +12,7 @@ type PostBody = {
 @Injectable()
 export class HttpService {
   @Output() postsChange = new EventEmitter();
+  @Output() aboutChange = new EventEmitter();
 
   constructor(private http: HttpClient) {}
 
@@ -27,18 +28,32 @@ export class HttpService {
   }
 
   updateData(post:PostBody, id:string) {
-    this.http.put('https://project-server-788da-default-rtdb.firebaseio.com/posts/'+id+'.json', post).subscribe();
-    this.postsChange.emit();
+    this.http.put('https://project-server-788da-default-rtdb.firebaseio.com/posts/'+id+'.json', post)
+      .subscribe(() => {
+        this.postsChange.emit();
+      });
   }
 
   postData(post: PostBody) {
-    this.http.post('https://project-server-788da-default-rtdb.firebaseio.com/posts.json', post).subscribe();
-    this.postsChange.emit();
+   this.http.post('https://project-server-788da-default-rtdb.firebaseio.com/posts.json', post).subscribe(
+      () => { this.postsChange.emit();}
+    );
   }
 
   deletePost(id:string) {
-    this.http.delete('https://project-server-788da-default-rtdb.firebaseio.com/posts/'+id+'.json').subscribe();
-    this.postsChange.emit();
+    this.http.delete('https://project-server-788da-default-rtdb.firebaseio.com/posts/'+id+'.json')
+      .subscribe(() => {
+        this.postsChange.emit();
+      });
   }
 
+  getAboutData(){
+    return this.http.get('https://project-server-788da-default-rtdb.firebaseio.com/about.json');
+  }
+  updateAboutData(description:{}) {
+    this.http.put('https://project-server-788da-default-rtdb.firebaseio.com/about.json', description).subscribe(
+      () => {
+        this.aboutChange.emit();
+      });
+  }
 }

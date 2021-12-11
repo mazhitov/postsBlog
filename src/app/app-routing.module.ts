@@ -6,6 +6,8 @@ import { ManagePostsComponent } from './posts/manage-posts/manage-posts.componen
 import { PostDetailsComponent } from './posts/manage-posts/post-details/post-details.component';
 import { EmptyPostDetailComponent } from './posts/manage-posts/empty-post-detail.component';
 import { NewEditPostComponent } from './posts/manage-posts/new-edit-post/new-edit-post.component';
+import { AboutComponent } from './about/about.component';
+import { AboutEditComponent } from './about/about-edit.component';
 
 const routes: Routes = [
   {path: '',component: PostsComponent},
@@ -15,6 +17,10 @@ const routes: Routes = [
       {path: ':id',component: PostDetailsComponent},
       {path: ':id/edit',component: NewEditPostComponent},
     ]},
+  {path: 'about', component: AboutComponent, children: [
+      {path: 'edit', component: AboutEditComponent}
+    ]},
+  // {path: 'contacts'},
   {path: '**', component: NotFoundComponent},
 ];
 

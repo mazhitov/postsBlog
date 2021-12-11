@@ -8,14 +8,15 @@ import { HttpService } from '../../../shared/http.service';
   styleUrls: ['./manage-posts.component.css']
 })
 export class ManagePostsComponent implements OnInit {
-  posts:Post[] = [];
+  posts: Post[] = [];
 
-  constructor(private httpService: HttpService) {}
+  constructor(private httpService: HttpService) {
+  }
 
   ngOnInit() {
     this.getData();
     this.httpService.postsChange.subscribe(() => {
-        this.getData();
+      this.getData();
     });
   }
 
