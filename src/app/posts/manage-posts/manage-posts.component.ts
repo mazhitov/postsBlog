@@ -10,6 +10,7 @@ import { HttpService } from '../../../shared/http.service';
 export class ManagePostsComponent implements OnInit {
   posts: Post[] = [];
   loading = false;
+
   constructor(private httpService: HttpService) {
   }
 
