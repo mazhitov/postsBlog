@@ -8,6 +8,8 @@ import { EmptyPostDetailComponent } from './posts/manage-posts/empty-post-detail
 import { NewEditPostComponent } from './posts/manage-posts/new-edit-post/new-edit-post.component';
 import { AboutComponent } from './about/about.component';
 import { AboutEditComponent } from './about/about-edit.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
 
 const routes: Routes = [
   {path: '',component: PostsComponent},
@@ -20,7 +22,9 @@ const routes: Routes = [
   {path: 'about', component: AboutComponent, children: [
       {path: 'edit', component: AboutEditComponent}
     ]},
-  // {path: 'contacts'},
+  {path: 'contacts', component: ContactsComponent, children: [
+      {path: 'edit', component: ContactEditComponent}
+    ]},
   {path: '**', component: NotFoundComponent},
 ];
 

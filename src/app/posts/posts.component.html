@@ -1,4 +1,9 @@
-<div class="pt-5">
+<div class="lds-circle spinner-center" *ngIf="loading"><div></div></div>
+<div
+  class="modal-backdrop show"
+  [ngStyle]="{display: loading ? 'block' : 'none'}"
+></div>
+<div class="pt-5" *ngIf="!loading">
   <app-post
     *ngFor="let post of posts"
     [post]="post"

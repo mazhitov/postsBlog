@@ -8,7 +8,7 @@ import { HttpService } from '../../shared/http.service';
 })
 export class AboutComponent implements OnInit {
   description = '';
-
+  loading = false;
   constructor(private httpService: HttpService) { }
 
   ngOnInit(): void {
@@ -18,8 +18,10 @@ export class AboutComponent implements OnInit {
     });
   }
   getAboutData() {
+    this.loading = true;
     this.httpService.getAboutData().subscribe((description) => {
       this.description = Object.values(description)[0];
+      this.loading = false;
     });
   }
 }

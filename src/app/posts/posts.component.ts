@@ -9,12 +9,14 @@ import { HttpService } from '../../shared/http.service';
 })
 export class PostsComponent implements OnInit {
   posts:Post[] = [];
-
+  loading = false;
   constructor(private httpService: HttpService) { }
 
   ngOnInit(): void {
+    this.loading = true;
     this.httpService.getData().subscribe(posts => {
       this.posts = posts;
+      this.loading = false;
     });
   }
 

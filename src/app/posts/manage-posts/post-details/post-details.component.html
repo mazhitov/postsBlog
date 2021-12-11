@@ -1,4 +1,9 @@
-<div class="row mt-2" *ngIf="post">
+<div class="lds-circle spinner-center" *ngIf="loading"><div></div></div>
+<div
+  class="modal-backdrop show"
+  [ngStyle]="{display: loading ? 'block' : 'none'}"
+></div>
+<div class="row mt-2" *ngIf="!loading && post">
   <div class="col">
     <h4>Post details</h4>
     <div class="card">

@@ -1,0 +1,23 @@
+<div class="lds-circle spinner-center" *ngIf="loading"><div></div></div>
+<div
+  class="modal-backdrop show"
+  [ngStyle]="{display: loading ? 'block' : 'none'}"
+></div>
+<div class="row" *ngIf="!loading">
+  <div class="col">
+    <div class="card-header">
+      <h3>Contacts</h3>
+    </div>
+    <div class="card-body" *ngIf="contacts">
+      <p class="card-text"><strong> Phone number:</strong> {{ contacts.phone }}</p>
+      <p class="card-text"><strong> Home phone number:</strong> {{ contacts.homePhone }}</p>
+      <p class="card-text"><strong> Email:</strong> {{ contacts.email }}</p>
+      <p class="card-text"><strong> Telegram:</strong> {{ contacts.telegram }}</p>
+      <p class="card-text"><strong> Twitter:</strong> {{ contacts.twitter }}</p>
+      <a class="btn btn-primary" [routerLink]="['edit']">Edit contacts</a>
+    </div>
+  </div>
+  <div class="col">
+    <router-outlet></router-outlet>
+  </div>
+</div>

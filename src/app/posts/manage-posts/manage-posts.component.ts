@@ -9,7 +9,7 @@ import { HttpService } from '../../../shared/http.service';
 })
 export class ManagePostsComponent implements OnInit {
   posts: Post[] = [];
-
+  loading = false;
   constructor(private httpService: HttpService) {
   }
 
@@ -21,8 +21,10 @@ export class ManagePostsComponent implements OnInit {
   }
 
   getData() {
+    this.loading = true;
     this.httpService.getData().subscribe(posts => {
       this.posts = posts;
+      this.loading = false;
     });
   }
 }

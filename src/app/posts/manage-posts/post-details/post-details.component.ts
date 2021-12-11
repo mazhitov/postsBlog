@@ -12,17 +12,20 @@ export class PostDetailsComponent implements OnInit {
   post!: Post | undefined;
   modalOpen = false;
   postId = '';
+  loading = false;
   constructor(private route: ActivatedRoute,
               private router: Router,
               private httpService: HttpService,
               ) {}
 
   ngOnInit(): void {
+    this.loading = true;
     this.route.params.subscribe((params: Params) => {
       this.postId = params['id'];
 
       this.httpService.getData().subscribe(posts => {
         this.post = posts.find(post => post.id === this.postId);
+        this.loading = false;
       })
     });
   }

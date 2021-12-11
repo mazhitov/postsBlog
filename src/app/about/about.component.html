@@ -1,4 +1,9 @@
-<div class="row">
+<div class="lds-circle spinner-center" *ngIf="loading"><div></div></div>
+<div
+  class="modal-backdrop show"
+  [ngStyle]="{display: loading ? 'block' : 'none'}"
+></div>
+<div class="row" *ngIf="!loading">
   <div class="col p-0">
     <div class="card-header">
       <h3>About My Blog</h3>

@@ -31,6 +31,5 @@ export class AboutEditComponent implements OnInit{
     const description = this.description;
     this.httpService.updateAboutData({description});
     void this.router.navigate(['/about']);
-    this.description = ''
   }
 }

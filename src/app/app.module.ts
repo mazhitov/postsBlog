@@ -17,6 +17,8 @@ import { NewEditPostComponent } from './posts/manage-posts/new-edit-post/new-edi
 import { FormsModule } from '@angular/forms';
 import { AboutComponent } from './about/about.component';
 import { AboutEditComponent } from './about/about-edit.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { AboutEditComponent } from './about/about-edit.component';
     ModalComponent,
     NewEditPostComponent,
     AboutComponent,
-    AboutEditComponent
+    AboutEditComponent,
+    ContactsComponent,
+    ContactEditComponent
   ],
   imports: [
     BrowserModule,
