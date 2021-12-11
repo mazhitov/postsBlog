@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col p-0">
+    <div class="card-header">
+      <h3>About My Blog</h3>
+    </div>
+    <div class="card-body">
+      <p class="card-text">{{ description }}</p>
+    </div>
+    <div class="card-footer mb-3">
+      <em>author: Mazhitov keneshbek</em>
+    </div>
+    <a class="btn btn-primary" [routerLink]="['edit']">Edit Description</a>
+  </div>
+  <div class="col">
+    <router-outlet></router-outlet>
+  </div>
+</div>

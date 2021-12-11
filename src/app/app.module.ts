@@ -15,6 +15,8 @@ import { EmptyPostDetailComponent } from './posts/manage-posts/empty-post-detail
 import { ModalComponent } from './ui/modal/modal.component';
 import { NewEditPostComponent } from './posts/manage-posts/new-edit-post/new-edit-post.component';
 import { FormsModule } from '@angular/forms';
+import { AboutComponent } from './about/about.component';
+import { AboutEditComponent } from './about/about-edit.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { FormsModule } from '@angular/forms';
     PostDetailsComponent,
     EmptyPostDetailComponent,
     ModalComponent,
-    NewEditPostComponent
+    NewEditPostComponent,
+    AboutComponent,
+    AboutEditComponent
   ],
   imports: [
     BrowserModule,
